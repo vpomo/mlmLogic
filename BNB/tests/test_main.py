@@ -59,7 +59,7 @@ def test_staked_token(chain, accounts, instance):
 
     instance.incrementShiftTime(one_day)
 
-    tx = instance.reinvest(0, {'from': accounts[1]})
+    tx = instance.getReward(0, {'from': accounts[1]})
     print('tx.info() = ', tx.info())
 
     instance.incrementShiftTime(one_day)
@@ -71,7 +71,7 @@ def test_staked_token(chain, accounts, instance):
     calcAmount = instance.calculateReward(accounts[1])
     print('calcAmount[1] = ', calcAmount/decimal)
 
-    tx = instance.reinvest(1, {'from': accounts[1]})
+    tx = instance.getReward(1, {'from': accounts[1]})
 
     instance.newDeposit(accounts[2], {'from': accounts[3], 'value': "5 ether"})
 
@@ -107,6 +107,6 @@ def test_staked_token(chain, accounts, instance):
     print('days [0] + 1 = ', days)
     print('currentTime = ', instance.currentTime())
 
-    tx = instance.reinvestAll({'from': accounts[1]})
+    tx = instance.getRewardAll({'from': accounts[1]})
     print('tx.info() = ', tx.info())
     print('getAllDeposits = ', instance.getAllDeposits(accounts[1]))

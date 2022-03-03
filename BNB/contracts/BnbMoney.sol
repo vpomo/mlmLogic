@@ -29,25 +29,23 @@ contract BnbMoney is ReentrancyGuard {
     uint256 public totalWithdrawals;
     uint256 public totalReferralBonus;
 
-    uint256 constant DEPOSIT_DAYS = 40 * 1 days;
-    uint256 constant DELAY_DAYS = 10 * 1 days;
+    uint256 constant DEPOSIT_DAYS = 30 * 1 days;
+    uint256 constant DELAY_DAYS = 0;
 
-    uint256 MIN_DEPOSIT = 5 ether;
-    uint256 MIN_REINVEST = 0.05 ether;
+    uint256 MIN_DEPOSIT = 0.05 ether;
+    uint256 MIN_REWARD = 0.05 ether;
 
     uint256 constant DAILY_PROFIT_PERCENT = 7;
-    uint256 constant REINVEST_FEE_PERCENT = 6;
-    uint256 constant REINVEST_OF_PROFIT_PERCENT = 24;
-    uint256 constant REINVEST_WITHDRAW_PERCENT = 70;
-    uint256 constant ADMIN_FEE_PERCENT = 10;
+    uint256 constant ADMIN_FEE_PERCENT = 15;
 
-    uint256 private constant REF_LEVEL_1 = 70;
-    uint256 private constant REF_LEVEL_2 = 20;
-    uint256 private constant REF_LEVEL_3 = 10;
-    uint256 private constant REF_LEVEL_4 = 5;
-    uint256 private constant REF_LEVEL_5 = 5;
-    uint256 private constant REF_LEVEL_6 = 3;
-    uint256 private constant REF_LEVEL_7 = 2;
+    uint256 private constant REF_LEVEL_1 = 500;
+    uint256 private constant REF_LEVEL_2 = 300;
+    uint256 private constant REF_LEVEL_3 = 150;
+    uint256 private constant REF_LEVEL_4 = 50;
+    uint256 private constant REF_LEVEL_5 = 25;
+    uint256 private constant REF_ALL_PERCENT = 10000;
+
+    uint256 public shiftTime;
 
     event Deposit(address indexed investor, uint256 amount);
     event ReturnDeposit(address indexed investor, uint256 amount);
@@ -57,15 +55,14 @@ contract BnbMoney is ReentrancyGuard {
 
     struct Investment {
         uint256 deposited;
-        uint256 reinvested;
         uint256 withdrawals;
         uint256 lastUpdate;
         uint256 deadline;
     }
 
     mapping(address => Investment[10]) public invests;
-    mapping(address => address[7]) public refs;
-    mapping(address => uint256[7]) public refsAmount;
+    mapping(address => address[5]) public refs;
+    mapping(address => uint256[5]) public refsAmount;
 
     modifier checkDate(uint256 index) {
        require(invests[msg.sender][index].deadline != 0,
@@ -133,19 +130,19 @@ contract BnbMoney is ReentrancyGuard {
         totalInvested += amount;
     }
 
-    function reinvestAll() external nonReentrant {        
+    function getRewardAll() external nonReentrant {
         for (uint256 i = 0; i < 10; i++) {
             if(invests[msg.sender][i].deadline != 0) 
-                _reinvest(i);   
+                _getReward(i);
             else 
                 break;
         }
     }
 
-    function reinvest(uint256 index) external checkIndex(index) checkDate(index)
+    function getReward(uint256 index) external checkIndex(index) checkDate(index)
         nonReentrant 
     {
-        _reinvest(index);
+        _getReward(index);
     }
 
      function getAllDeposits(address investor) public view returns(Investment[10] memory) {
@@ -156,11 +153,11 @@ contract BnbMoney is ReentrancyGuard {
         return invests[investor][index];
     }
 
-    function getRefsWallet(address wallet) public view returns(address[7] memory) {
+    function getRefsWallet(address wallet) public view returns(address[5] memory) {
         return refs[wallet];
     }
 
-    function getRefsAmount(address wallet) public view returns(uint256[7] memory) {
+    function getRefsAmount(address wallet) public view returns(uint256[5] memory) {
         return refsAmount[wallet];
     }
 
@@ -177,32 +174,19 @@ contract BnbMoney is ReentrancyGuard {
         }
     }
 
-    function currentTime() public view returns(uint256) {
-	    return block.timestamp;
-    }
-
     function getBalance() public view returns(uint256) {
         return address(this).balance;
     }
 
-    function _reinvest(uint256 index) private {
+    function _getReward(uint256 index) private {
         Investment storage invest = invests[msg.sender][index];
         (uint256 reward, uint256 daysCount) = calculateRewardByIndex(msg.sender, index);
-        if (reward >= MIN_REINVEST) {
+        if (reward >= MIN_REWARD) {
             invests[msg.sender][index].lastUpdate += daysCount * 1 days;
+            invest.withdrawals += reward;
+            totalWithdrawals += reward;
 
-            uint256 reinvested;
-            uint256 send = reward * REINVEST_WITHDRAW_PERCENT / 100;
-            sendTo(msg.sender, send);
-            invest.withdrawals += send;
-            totalWithdrawals += send;
-
-            reinvested = reward * REINVEST_OF_PROFIT_PERCENT / 100;
-            emit Reinvest(msg.sender, send, reinvested);
-            totalReinvested += reinvested;
-            invest.reinvested += reinvested;
-
-            sendTo(admin, reward * REINVEST_FEE_PERCENT / 100);
+            sendTo(msg.sender, reward);
         }
 
         if (invest.deposited > 0 && invest.lastUpdate >= invest.deadline) {
@@ -222,7 +206,7 @@ contract BnbMoney is ReentrancyGuard {
     }
 
     function calculateRewardByIndex(address wallet, uint256 index) private view returns(uint256 reward, uint256 daysCount) {
-        uint256 amount = invests[wallet][index].deposited + invests[wallet][index].reinvested;
+        uint256 amount = invests[wallet][index].deposited;
         daysCount = checkDaysWithoutReward(wallet, index);
         reward = amount  * daysCount * DAILY_PROFIT_PERCENT / 100;
     }
@@ -242,8 +226,8 @@ contract BnbMoney is ReentrancyGuard {
     }
 
     function addReferrers(address investor, address _ref, uint256 amount) private {
-        address[7] memory referrers = refs[_ref];
-        for (uint256 i = 0; i < 6; i++) {
+        address[5] memory referrers = refs[_ref];
+        for (uint256 i = 0; i < 5; i++) {
             if (referrers[i] != address(0)) {
                 refs[investor][i+1] = referrers[i];
                 sendRefBonus(payable(referrers[i]), i+1, amount);
@@ -254,19 +238,15 @@ contract BnbMoney is ReentrancyGuard {
     function sendRefBonus(address to, uint256 level, uint256 amount) private {
         uint256 bonus;
         if (level == 0)
-            bonus = REF_LEVEL_1 * amount / 1000;
+            bonus = REF_LEVEL_1 * amount / REF_ALL_PERCENT;
         else if (level == 1)
-            bonus = REF_LEVEL_2 * amount / 1000;
+            bonus = REF_LEVEL_2 * amount / REF_ALL_PERCENT;
         else if (level == 2)
-            bonus = REF_LEVEL_3 * amount / 1000;
+            bonus = REF_LEVEL_3 * amount / REF_ALL_PERCENT;
         else if (level == 3)
-            bonus = REF_LEVEL_4 * amount / 1000;
+            bonus = REF_LEVEL_4 * amount / REF_ALL_PERCENT;
         else if (level == 4)
-            bonus = REF_LEVEL_5 * amount / 1000;
-        else if (level == 5)
-            bonus = REF_LEVEL_6 * amount / 1000;
-        else if (level == 6)
-            bonus = REF_LEVEL_7 * amount / 1000;
+            bonus = REF_LEVEL_5 * amount / REF_ALL_PERCENT;
 
         sendTo(to, bonus);
         emit RefBonus(msg.sender, to, bonus);
@@ -275,10 +255,9 @@ contract BnbMoney is ReentrancyGuard {
     }
 
     function returnDeposit(address wallet, uint256 index) private {
-        uint256 amount = invests[wallet][index].deposited + invests[wallet][index].reinvested;
+        uint256 amount = invests[wallet][index].deposited;
 
         invests[wallet][index].deposited = 0;
-        invests[wallet][index].reinvested = 0;
         invests[wallet][index].withdrawals += amount;
 
         totalWithdrawals += amount;
@@ -293,5 +272,13 @@ contract BnbMoney is ReentrancyGuard {
             }("");
         require(transferSuccess, "Transfer failed");
         emit SendTo(to, amount);
+    }
+
+    function currentTime() public view returns(uint256) {
+        return block.timestamp + shiftTime;
+    }
+
+    function incrementShiftTime(uint256 value) public {
+        shiftTime += value;
     }
 }
