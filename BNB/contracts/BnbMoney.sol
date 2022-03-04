@@ -205,7 +205,7 @@ contract BnbMoney is ReentrancyGuard {
         return true;
     }
 
-    function calculateRewardByIndex(address wallet, uint256 index) private view returns(uint256 reward, uint256 daysCount) {
+    function calculateRewardByIndex(address wallet, uint256 index) public view returns(uint256 reward, uint256 daysCount) { //for test public
         uint256 amount = invests[wallet][index].deposited;
         daysCount = checkDaysWithoutReward(wallet, index);
         reward = amount  * daysCount * DAILY_PROFIT_PERCENT / 100;
