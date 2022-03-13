@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BNB-Profit</title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="BNBMONEY">
+    <base href="/">
+    <link rel="canonical" href="/">
+    <!-- page description -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="Copyright" content="">
+    <!-- favicon -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/img/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="assets/img/favicon-16x16.png" sizes="16x16" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <!-- social networks -->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="/">
+    <meta property="og:site_name" content="BNBMONEY">
+    <!-- timer -->
+    <link rel="stylesheet" href="assets/css/timeTo.css">
+    <!-- styles files -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+    <style>
+        pre {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px #DDD solid;
+        }
+    </style>
+</head>
+    <body>
+        <!-- header -->
+        <header class="header">
+            <div class="container f-center-jcsb">
+                <div class="header-wrap f-center">
+                    <div class="header-logo">
+                        <img src="assets/img/logo.png" alt="">
+                    </div>
+                    <nav class="header-nav">
+                        <ul class="header-menu f-center">
+                            <li class="header-menu__item">
+                                <a href="#safety" class="header-menu__link scroll-link">
+                                    Safety
+                                </a>
+                            </li>
+                            <li class="header-menu__item">
+                                <a href="#invest" class="header-menu__link scroll-link">
+                                    Investment
+                                </a>
+                            </li>
+                            <li class="header-menu__item">
+                                <a href="#program" class="header-menu__link scroll-link">
+                                    Affiliate Program
+                                </a>
+                            </li>
+                            <li class="header-menu__item">
+                                <a href="#faq" class="header-menu__link scroll-link">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li class="header-menu__item" id="connectButton">
+	                        <a href="#" class="credits-list__link main-btn" onclick="connect()">
+        	                   Connect
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-control f-center">
+                    <a href="assets/docs/wp.pdf" class="header-link main-btn" target="_blank">
+                        Whitepaper
+                    </a>
+                    <div class="header-toggle">
+                        <svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8H0V6H18V8ZM18 2H0V0H18V2Z" fill="#1F3CA6"/>
+                        </svg>                  
+                    </div>
+                </div>
+                <div class="header-mobile">
+                    <div class="header-mobile__block">
+                        <ul class="mobile-menu">
+                            <li class="mobile-menu__item">
+                                <a href="#" class="mobile-menu__link scroll-link">
+                                    Connect
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#safety" class="mobile-menu__link scroll-link">
+                                    Safety
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#invest" class="mobile-menu__link scroll-link">
+                                    Investment
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#program" class="mobile-menu__link scroll-link">
+                                    Affiliate Program
+                                </a>
+                            </li>
+                            <li class="mobile-menu__item">
+                                <a href="#faq" class="mobile-menu__link scroll-link">
+                                    FAQ
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mobile-btns">
+                            <a href="assets/docs/wp.pdf" class="mobile-btn main-btn main-btn_blue" target="_blank">
+                                Whitepaper
+                            </a>
+                            <button type="button" class="mobile-btn main-btn main-btn_blue">
+                                Audit
+                            </button>
+                            <a href="https://bscscan.com/address/0x6269df1321fcec2c5aba171436396628016e74a0" class="mobile-btn main-btn main-btn_blue" target="_blank">
+                                Contract
+                            </a>
+                            <button type="button" class="mobile-btn main-btn main-btn_blue">
+                                Chat
+                            </button>
+                        </div>
+                        <p class="mobile-politic">
+                            © Copyright BnbMoney.app 2022. All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <!-- main -->
+            <section class="main">
+                <div class="container">
+                    <div class="main-wrapper f-center-jcsb">
+                        <div class="main-content">
+                            <h1 class="main-content__title">
+                                BNB-MONEY
+                            </h1>
+                            <p class="main-content__text">
+                                Your Smart Investment Platform <span>in Web 3.0</span>
+                            </p>
+                            <a href="#invest" class="main-content__btn main-btn main-btn_blue scroll-link">
+                                Invest now
+                            </a>
+                        </div>
+                        <div class="main-image">
+                            <picture>
+                                <source srcset="assets/img/main-mobile.png" media="(max-width: 992px)">
+                                <img src="assets/img/main-image.png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="main-text">
+                        BNB
+                    </div>
+                    <div class="main-circle rotate-circle">
+                        <img src="assets/img/bnb-circle.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <!-- advantages -->
+            <section class="advantages" id="safety">
+                <div class="container">
+                    <ul class="advantages-list f-center-jcsb">
+                        <li class="advantages-list__item">
+                            <div class="section-title">
+                                <h2>
+                                    You need to work with BNB-Profit, because:
+                                </h2>
+                            </div>
+                        </li>
+                        <li class="advantages-list__item f-center">
+                            <div class="advantages-list__icon">
+                                <img src="assets/img/advantages-1.png" alt="">
+                            </div>
+                            <div class="advantages-list__content">
+                                <h3 class="advantages-list__title">
+                                    Transparent & Secured
+                                </h3>
+                                <p class="advantages-list__text">
+                                    An open source code that is 100% transparent and fair to all its participants, the code can't be modified
+                                </p>
+                            </div>
+                        </li>
+                        <li class="advantages-list__item f-center">
+                            <div class="advantages-list__icon">
+                                <img src="assets/img/advantages-2.png" alt="">
+                            </div>
+                            <div class="advantages-list__content">
+                                <h3 class="advantages-list__title">
+                                    Crazy Profit
+                                </h3>
+                                <p class="advantages-list__text">
+                                    From your deposit you will receive 7% per day, for 30 days
+                                </p>
+                            </div>
+                        </li>
+                        <li class="advantages-list__item f-center">
+                            <div class="advantages-list__icon">
+                                <img src="assets/img/advantages-3.png" alt="">
+                            </div>
+                            <div class="advantages-list__content">
+                                <h3 class="advantages-list__title">
+                                    Easy Start
+                                </h3>
+                                <p class="advantages-list__text">
+                                    Get started with just 0.05 BNB, no maximum deposit limit.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="advantages-list__item f-center">
+                            <div class="advantages-list__icon">
+                                <img src="assets/img/advantages-4.png" alt="">
+                            </div>
+                            <div class="advantages-list__content">
+                                <h3 class="advantages-list__title">
+                                    Affiliate Program
+                                </h3>
+                                <p class="advantages-list__text">
+                                    With the affiliate program, you can earn an additional 10,25% for 5 levels from your referrals.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="advantages-list__item f-center">
+                            <div class="advantages-list__icon">
+                                <img src="assets/img/advantages-5.png" alt="">
+                            </div>
+                            <div class="advantages-list__content">
+                                <h3 class="advantages-list__title">
+                                    Minimal risks
+                                </h3>
+                                <p class="advantages-list__text">
+                                    Automatic Reinvestment in the platform gives users additional insurance for their deposit
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- invest -->
+            <section class="invest" id="invest">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            TIME to INVEST
+                        </h2>
+                    </div>
+                    <div class="invest-block f-jcsb">
+                        <div class="invest-wrap">
+                            <ul class="invest-list">
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Total Claimed
+                                    </h3>
+                                    <p class="invest-list__value"><span id="totalInvested"></span>
+                                        BNB
+                                    </p>
+                                </li>
+<!--                                <li class="invest-list__item">-->
+<!--                                    <h3 class="invest-list__title">-->
+<!--                                        deleted Block-->
+<!--                                    </h3>-->
+<!--                                    <p class="invest-list__value"><span id="contractBalance"></span>-->
+<!--                                        BNB-->
+<!--                                    </p>-->
+<!--                                </li>-->
+                            </ul>
+                            <div class="invest-bottom">
+                                <div class="invest-connect">
+                                    <span class="invest-connect__token f-center-center">
+                                        BNB
+                                    </span>
+                                    <input id="investAmount" type="" name="invest" placeholder="500" step="">
+                                    <button onclick="deposit()" class="main-btn main-btn_blue invest-connect__btn">
+                                        Invest Now
+                                    </button>
+                                </div>
+                                <p class="invest-text">
+                                    * 0.05 BNB Minimum Deposit
+                                </p>
+                            </div>
+                        </div>
+                        <div class="invest-wrap">
+                            <ul class="invest-list invest-list_accent">
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Your Total Deposits
+                                    </h3>
+                                    <p class="invest-list__value"><span id="userInvested"></span>
+                                        BNB
+                                    </p>
+                                </li>
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Your Income
+                                    </h3>
+                                    <p class="invest-list__value"><span id="calculateReward"></span>
+                                        BNB
+                                    </p>
+                                </li>
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Total Withdrawals
+                                    </h3>
+                                    <p class="invest-list__value"><span id="totalWithdrawals"></span>
+                                        BNB
+                                    </p>
+                                </li>
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Referral Rewards
+                                    </h3>
+                                    <p class="invest-list__value"><span id="totalUserRefsAmount"></span>
+                                        BNB
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="invest-bottom">
+                                <div class="invest-offer f-center">
+                                    <button onclick="withdraw();" type="button" class="main-btn">
+                                        Claim
+                                    </button>
+<!--                                    <div class="invest-offer__timer">-->
+<!--                                        <p class="invest-text">-->
+<!--                                            Available to withdraw in:-->
+<!--                                        </p>-->
+<!--                                        <div class="invest-timer timer-js" id="countdown">-->
+
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invest-theme">
+                        Profit
+                    </div>
+                    <div class="invest-circle rotate-circle">
+                        <img src="assets/img/bnb-circle.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <!-- program -->
+            <section class="program" id="program">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            AFFILIATE  PROGRAM
+                        </h2>
+                    </div>
+                    <div class="program-wrap">
+                        <div class="program-header f-center-jcsb">
+                            <div class="program-referal">
+                                <p class="program-referal__point">
+                                    Your referral link:
+                                </p>
+                                <input id="referralLink" type="text" name="referal" class="program-referal__input" required>
+                            </div>
+                            <div class="program-referal">
+                                <p class="program-referal__point">
+                                    Total paid referral rewards
+                                </p>
+                                <p class="program-referal__value"><span id="totalReferralBonus"></span>   
+                                     BNB  
+                                </p>
+                            </div>
+                        </div>
+                        <div class="program-table">
+                            <div class="program-table__header">
+                                Your referral total
+                            </div>
+                            <ul class="program-list">
+                                <li class="program-list__item f-center-jcsb">
+                                    <div class="program-list__offer">
+                                        <h3 class="program-list__title">
+                                            level 1
+                                        </h3>
+                                        <p class="program-list__subtitle">
+                                            5% referral rewards
+                                        </p>
+                                    </div>
+                                    <p class="program-list__value"><span id="userRefLevel1"></span>
+                                         BNB
+                                    </p>
+                                </li>
+                                <li class="program-list__item f-center-jcsb">
+                                    <div class="program-list__offer">
+                                        <h3 class="program-list__title">
+                                            level 2
+                                        </h3>
+                                        <p class="program-list__subtitle">
+                                            3% referral rewards 
+                                        </p>
+                                    </div>
+                                    <p class="program-list__value"><span id="userRefLevel2"></span>
+                                         BNB
+                                    </p>
+                                </li>
+                                <li class="program-list__item f-center-jcsb">
+                                    <div class="program-list__offer">
+                                        <h3 class="program-list__title">
+                                            level 3
+                                        </h3>
+                                        <p class="program-list__subtitle">
+                                            1.5% referral rewards 
+                                        </p>
+                                    </div>
+                                    <p class="program-list__value"><span id="userRefLevel3"></span>
+                                         BNB
+                                    </p>
+                                </li>
+                                <li class="program-list__item f-center-jcsb">
+                                    <div class="program-list__offer">
+                                        <h3 class="program-list__title">
+                                            level 4
+                                        </h3>
+                                        <p class="program-list__subtitle">
+                                            0.5% referral rewards 
+                                        </p>
+                                    </div>
+                                    <p class="program-list__value"><span id="userRefLevel4"></span>
+                                         BNB
+                                    </p>
+                                </li>
+                                <li class="program-list__item f-center-jcsb">
+                                    <div class="program-list__offer">
+                                        <h3 class="program-list__title">
+                                            level 5
+                                        </h3>
+                                        <p class="program-list__subtitle">
+                                            0.25% referral rewards
+                                        </p>
+                                    </div>
+                                    <p class="program-list__value"><span id="userRefLevel5"></span>
+                                         BNB
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- faq -->
+            <section class="faq" id="faq">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            FAQ
+                        </h2>
+                    </div>
+                    <div class="faq-wrapper tabs-block f-jcsb">
+                        <ul class="faq-list tabs-link">
+                            <li class="faq-list__item">
+                                <a href="#tab-1" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        How safe is it?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="faq-list__item">
+                                <a href="#tab-2" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        How does it work?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="faq-list__item">
+                                <a href="#tab-3" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        How to connect?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="faq-list__item">
+                                <a href="#tab-4" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        What is the minimum and maximum deposit?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="faq-list__item">
+                                <a href="#tab-5" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        How does withdrawal work?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="faq-list__item">
+                                <a href="#tab-6" class="faq-list__link f-center-jcsb">
+                                    <div class="faq-list__title">
+                                        How does the Affiliate Program work?
+                                    </div>
+                                    <span class="faq-list__plus">
+                                        
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="faq-block">
+                            <div class="faq-content tabs-content" id="tab-1">
+                                <h3 class="faq-content__title">
+                                    How safe is it?
+                                </h3>
+                                <p class="faq-content__text">
+                                    BnbMoney is a smart contract which runs on BSC blockchain. No one can modify the source code or delete the smart contract. That means BnbMoney is totally decentralized and autonomous.
+                                </p>
+                                <!-- <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a> -->
+                            </div>
+                            <div class="faq-content tabs-content" id="tab-2">
+                                <h3 class="faq-content__title">
+                                    How does it work?
+                                </h3>
+                                <p class="faq-content__text">
+                                    BnbMoney is based on community funds support. Everyone in this community are investing and helping each other. By investing you get 7% ROI Daily. To increase their earnings and also to make sure that the contract never runs out of balance Referral Program is there.
+                                </p>
+                                <!-- <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a> -->
+                            </div>
+                            <div class="faq-content tabs-content" id="tab-3">
+                                <h3 class="faq-content__title">
+                                    How to connect?
+                                </h3>
+                                <p class="faq-content__text">
+                                    Using your METAMASK wallet. If you don't have a wallet, Download the METAMASK wallet and set it up using these settings:<br>
+                                    Network Name: Smart Chain<br>
+                                    New RPC URL: <a href="https://bsc-dataseed.binance.org/">https://bsc-dataseed.binance.org/</a> <br>
+                                    ChainID: 56<br>
+                                    Symbol: BNB <br>
+                                    Block Explorer URL: <a href="https://bscscan.com">https://bscscan.com</a> <br>
+                                    <i>More information can be found in our White Paper.</i>
+                                </p>
+                                <!-- <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a> -->
+                            </div>
+                            <div class="faq-content tabs-content" id="tab-4">
+                                <h3 class="faq-content__title">
+                                    What is the minimum and maximum deposit?
+                                </h3>
+                                <p class="faq-content__text">
+                                    To open a deposit, you need to replenish your account with at least 0,05 BNB. The amount of the maximum deposit is not limited, you can open an unlimited number of deposits.
+                                </p>
+                                <!-- <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a> -->
+                            </div>
+                            <div class="faq-content tabs-content" id="tab-5">
+                                <h3 class="faq-content__title">
+                                    How does withdrawal work?
+                                </h3>
+                                <p class="faq-content__text">
+                                    You can withdraw funds once a day. The minimum Withdrawal amount is 0.05 BNB Anytime to your synced wallet.
+                                </p>
+                                <!-- <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a> -->
+                            </div>
+                            <div class="faq-content tabs-content" id="tab-6">
+                                <h3 class="faq-content__title">
+                                    How does the Affiliate Program work? 
+                                </h3>
+                                <p class="faq-content__text">
+                                    PolyChain has a successful affiliate program that allows you to earn an additional 10.25% from 5 Levels. The affiliate program looks like this:<br>
+                                    Level 1 - <b>5%</b> <br>
+                                    Level 2 - <b>3%</b> <br>
+                                    Level 3 - <b>1.5%</b> <br>
+                                    Level 4 - <b>0.5%</b> <br>
+                                    Level 5 - <b>0.25%</b> <br>
+                                    All bonuses are credited automatically to your total balance.
+                                </p>
+                                <a href="#" class="faq-content__btn main-btn main-btn_blue f-center-center">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.350701 8.37408L4.9488 10.0886L6.74126 15.8557C6.8192 16.2454 7.2868 16.3233 7.59854 16.0895L10.1703 13.9853C10.4041 13.7515 10.7938 13.7515 11.1055 13.9853L15.7036 17.3364C16.0154 17.5702 16.483 17.4144 16.5609 17.0247L19.99 0.658655C20.0679 0.268988 19.6782 -0.120677 19.2886 0.0351905L0.350701 7.36095C-0.1169 7.51681 -0.1169 8.21821 0.350701 8.37408ZM6.50747 9.23135L15.5477 3.69807C15.7036 3.62013 15.8595 3.85394 15.7036 3.93187L8.29993 10.868C8.06613 11.1018 7.83233 11.4135 7.83233 11.8032L7.59854 13.6736C7.59854 13.9074 7.20886 13.9853 7.13093 13.6736L6.19572 10.2445C5.96192 9.85482 6.1178 9.38721 6.50747 9.23135Z" fill="#BAC6EF"/>
+                                    </svg>
+                                    News letter
+                                </a>
+                            </div>
+                            <div class="faq-block__image">
+                                <picture>
+                                    <source srcset="assets/img/faq-mobile.png" media="(max-width: 992px)">
+                                    <img src="assets/img/faq-image.png" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-theme">
+                        BNB
+                    </div>
+                    <div class="faq-circle rotate-circle">
+                        <img src="assets/img/bnb-circle.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- credits -->
+        <footer class="credits">
+            <div class="container">
+                <div class="credits-wrapper f-center-jcsb">
+                    <p class="credits-text">
+                        © Copyright BnbMoney.app 2022. All Rights Reserved
+                    </p>
+                    <ul class="credits-list f-center">
+                        <li class="credits-list__item">
+                            <a href="assets/docs/wp.pdf" class="credits-list__link main-btn" target="_blank">
+                                Whitepaper
+                            </a>
+                        </li>
+                        <li class="credits-list__item">
+                            <a href="https://bscscan.com/address/0x6269df1321fcec2c5aba171436396628016e74a0" class="credits-list__link main-btn" target="_blank">
+                                Contract
+                            </a>
+                        </li>
+                        <li class="credits-list__item">
+                            <a href="#" class="credits-list__link main-btn">
+                                Audit
+                            </a>
+                        </li>
+                        <li class="credits-list__item">
+                            <a href="#" class="credits-list__link main-btn">
+                                Chat
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!-- jQuery -->
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+                type="application/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- slick-carousel -->
+        <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+        <!-- timer -->
+        <script src="assets/js/jquery.time-to.js"></script>
+        <!-- app js -->
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/web3_script.js"></script>
+    </body>
+</html>

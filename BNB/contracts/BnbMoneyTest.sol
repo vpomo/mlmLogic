@@ -45,6 +45,8 @@ contract BnbMoney is ReentrancyGuard {
     uint256 private constant REF_LEVEL_5 = 25;
     uint256 private constant REF_ALL_PERCENT = 10000;
 
+    uint256 public shiftTime;
+
     event Deposit(address indexed investor, uint256 amount);
     event ReturnDeposit(address indexed investor, uint256 amount);
     event Reinvest(address indexed investor, uint256 amountWithdrawned, uint256 amountReinvested);
@@ -83,7 +85,7 @@ contract BnbMoney is ReentrancyGuard {
         refAdmin = _refAdmin;
     }
 
-    function newDeposit(address referrer) external payable nonReentrant {
+    function newDeposit(address referrer) external payable {
         uint256 amount = msg.value;
 
         require(amount >= MIN_DEPOSIT, "Minimum deposit is 5 Matic");
@@ -273,6 +275,10 @@ contract BnbMoney is ReentrancyGuard {
     }
 
     function currentTime() public view returns(uint256) {
-        return block.timestamp;
+        return block.timestamp + shiftTime;
+    }
+
+    function incrementShiftTime(uint256 value) public {
+        shiftTime += value;
     }
 }
