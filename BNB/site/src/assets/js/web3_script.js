@@ -129,7 +129,7 @@ async function fillUserInvestVariable() {
     }
     userWithdrawn = userWithdrawn/decimal;
     console.log("userWithdrawn", userWithdrawn);
-    //$('#userWithdrawn').html(userWithdrawn.toFixed(3));
+    $('#userWithdrawn').html(userWithdrawn.toFixed(3));
 
     var calculateReward = Number(await contractController.calculateReward(accounts[0]))/decimal;
     console.log("calculateReward", calculateReward);

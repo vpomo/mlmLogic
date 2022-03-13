@@ -74,11 +74,6 @@
                                     FAQ
                                 </a>
                             </li>
-                            <li class="header-menu__item" id="connectButton">
-	                        <a href="#" class="credits-list__link main-btn" onclick="connect()">
-        	                   Connect
-                                </a>
-                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -154,6 +149,9 @@
                             <p class="main-content__text">
                                 Your Smart Investment Platform <span>in Web 3.0</span>
                             </p>
+                            <a href="#connect" class="main-content__btn main-btn scroll-link" onclick="connect()" id="connectButton">
+                                Connect wallet
+                            </a>
                             <a href="#invest" class="main-content__btn main-btn main-btn_blue scroll-link">
                                 Invest now
                             </a>
@@ -265,9 +263,17 @@
                             <ul class="invest-list">
                                 <li class="invest-list__item">
                                     <h3 class="invest-list__title">
-                                        Total Claimed
+                                        Total Invested
                                     </h3>
                                     <p class="invest-list__value"><span id="totalInvested"></span>
+                                        BNB
+                                    </p>
+                                </li>
+                                <li class="invest-list__item">
+                                    <h3 class="invest-list__title">
+                                        Total Withdrawals
+                                    </h3>
+                                    <p class="invest-list__value"><span id="totalWithdrawals"></span>
                                         BNB
                                     </p>
                                 </li>
@@ -307,17 +313,17 @@
                                 </li>
                                 <li class="invest-list__item">
                                     <h3 class="invest-list__title">
-                                        Your Income
+                                        Your Withdrawals
                                     </h3>
-                                    <p class="invest-list__value"><span id="calculateReward"></span>
+                                    <p class="invest-list__value"><span id="userWithdrawn"></span>
                                         BNB
                                     </p>
                                 </li>
                                 <li class="invest-list__item">
                                     <h3 class="invest-list__title">
-                                        Total Withdrawals
+                                        Your Income
                                     </h3>
-                                    <p class="invest-list__value"><span id="totalWithdrawals"></span>
+                                    <p class="invest-list__value"><span id="calculateReward"></span>
                                         BNB
                                     </p>
                                 </li>
@@ -335,15 +341,10 @@
                                     <button onclick="withdraw();" type="button" class="main-btn">
                                         Claim
                                     </button>
-<!--                                    <div class="invest-offer__timer">-->
-<!--                                        <p class="invest-text">-->
-<!--                                            Available to withdraw in:-->
-<!--                                        </p>-->
-<!--                                        <div class="invest-timer timer-js" id="countdown">-->
-
-<!--                                        </div>-->
-<!--                                    </div>-->
                                 </div>
+                                <p class="invest-text">
+                                    * 0.05 BNB Minimum Amount
+                                </p>
                             </div>
                         </div>
                     </div>
